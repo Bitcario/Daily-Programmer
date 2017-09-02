@@ -8,40 +8,72 @@
  * Note: None.
  */
 
-// Header Files
+/***** Header Files */
 #include <stdio.h>
 #include <stdlib.h>
-// User-defined Header Files
+#include <assert.h>
+#include <string.h>
+/***** User-defined Header Files *****/
+/***** Directives *****/
+#define BUF_LEN 256
+/***** Global Variables *****/
+/***** Data Structures *****/
+/***** Function Prototypes *****/
+int *Cnvrt2IntArr(char *data, int *len);
+/***** Macros *****/
 
-// Directives
-
-// Global Variables
-
-// Data Structures
-
-// Function Prototypes
-
-// Macros
-
-// main()
+/***** main() *****/
 int
-main(int argc, char** argv) {
-  // Administrative
+main(int argc, char** argv)
+{ 
+  /***** Administrative *****/
   const char *const prog = argv[argc-argc]; 
-  // Declarations
-  
-  // Initializations
-  
-  // Input
-  
-  // Process
-  
-  // Output
-  
-  // Cleanup
+  /***** Declarations *****/
+  char *inStr = NULL;
+  int *data = NULL;
+  int dataLen;
+  /***** Initializations *****/
+  dataLen = 1;
+  inStr = malloc(sizeof(char)*BUF_LEN);
 
-  // Fin
+  assert(inStr != NULL); 
+  /***** Begin *****/
+  while (1) { 
+    /***** Input *****/
+    if (!fgets(inStr, BUF_LEN, stdin)) {
+      fprintf(stderr, "%s: no available input\n", prog);
+      break;
+    } 
+    /***** Process *****/
+    data = Cnvrt2IntArr(inStr, &dataLen); 
+    /***** Output *****/
+    // printAll3SUM()
+  } 
+  
+  /***** Cleanup *****/
+  free(inStr);
+  free(data); 
+  inStr = NULL;
+  data = NULL; 
+  /***** Fin *****/
   return EXIT_SUCCESS;
 }
 
-// Function Definitions
+/***** Function Definitions *****/
+int *Cnvrt2IntArr(char *str, int *len)
+{
+  assert(str != NULL);
+  assert(len != NULL);
+
+  char *ptr = NULL;
+  int *data = malloc(sizeof(int) * 128);
+  *len = 0;
+
+  ptr = strtok(str, " ");
+  while ((ptr = strtok(NULL, " "))) {
+    data[*len] = atoi(ptr);
+    (*len)++;
+  } 
+
+  return data;
+} 
