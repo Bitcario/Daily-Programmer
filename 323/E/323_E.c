@@ -8,58 +8,65 @@
  * Note: None.
  */
 
-/***** Header Files */
+// Header Files
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
 #include <string.h>
-/***** User-defined Header Files *****/
-/***** Directives *****/
+// User-defined Header Files 
+// Directives 
 #define BUF_LEN 256
-/***** Global Variables *****/
-/***** Data Structures *****/
-/***** Function Prototypes *****/
+// Global Variables 
+// Data Structures 
+// Function Prototypes 
 int *Cnvrt2IntArr(char *data, int *len);
-/***** Macros *****/
+// Macros 
 
-/***** main() *****/
+// main() 
 int
 main(int argc, char** argv)
 { 
-  /***** Administrative *****/
+  // Administrative 
   const char *const prog = argv[argc-argc]; 
-  /***** Declarations *****/
+
+  // Declarations 
   char *inStr = NULL;
   int *data = NULL;
   int dataLen;
-  /***** Initializations *****/
+
+  // Initializations 
   dataLen = 1;
   inStr = malloc(sizeof(char)*BUF_LEN);
 
   assert(inStr != NULL); 
-  /***** Begin *****/
+
+  // Begin 
   while (1) { 
-    /***** Input *****/
+    // Input 
     if (!fgets(inStr, BUF_LEN, stdin)) {
       fprintf(stderr, "%s: no available input\n", prog);
       break;
     } 
-    /***** Process *****/
+    // Process 
     data = Cnvrt2IntArr(inStr, &dataLen); 
-    /***** Output *****/
-    // printAll3SUM()
+    // Output 
+    printAll3SUM()
   } 
   
-  /***** Cleanup *****/
+  // Cleanup 
   free(inStr);
   free(data); 
   inStr = NULL;
   data = NULL; 
-  /***** Fin *****/
+  // Fin 
   return EXIT_SUCCESS;
 }
 
-/***** Function Definitions *****/
+// Function Definitions 
+void printAll3SUM() {
+  printf("printAll3SUM()\n");
+}
+
 int *Cnvrt2IntArr(char *str, int *len)
 {
   assert(str != NULL);
