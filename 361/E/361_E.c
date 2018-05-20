@@ -44,9 +44,11 @@ main(int argc, char **argv)
     strcpy(tallyOrder, "abcde");
     inputLen = strlen(input);
 
+    // Tally scores
     for (int i = 0; i < inputLen; i++) 
       tallyCnt[tolower(input[i]) - 'a'] += isupper(input[i]) ? -1 : 1;
 
+    // Order by descending score via bubble sort.
     for (int i = 0; i < 5; i++)
       for (int j = i + 1; j < 5; j++) 
         if (tallyCnt[j] > tallyCnt[i])
@@ -64,13 +66,13 @@ main(int argc, char **argv)
         }
      
     // Output
+    printf("%s: ", prog);
     for (int i = 0; i < 5; i++)
     {
       printf("%c: %d ", tallyOrder[i], tallyCnt[i]);
     }
     printf("\n");
   }
-  // Cleanup
 
   // Fin
   return EXIT_SUCCESS;
