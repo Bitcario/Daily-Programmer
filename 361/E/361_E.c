@@ -11,31 +11,65 @@
 // Header Files
 #include <stdio.h>
 #include <stdlib.h> 
-// Directives
-
-// Global Variables
-const char * const prog;
-// Data Structures
-
-// Function Prototypes
+#include <string.h>
+#include <ctype.h>
 
 // Macros
-#define BUF_SIZE 256
+#define BUF_LEN 256
+
 // main()
 int 
-main(int argc, char** argv)
+main(int argc, char **argv)
 {
-  // Delcarations
-  char input[BUF_SIZE};
+  // Administrative
+  const char * const prog = argv[0]; 
 
-  // Assignments
+  // Declarations & Initializations 
+  char  input[BUF_LEN];
+  char  tallyOrder[] = "abcde";
+  int   inputLen;
+  int   tallyCnt[5];
   
   // Input
-  
-  // Process
-  
-  // Output
+  while (fgets(input, BUF_LEN, stdin))
+  {
+    if (strcmp(input, "") == 0)
+    {
+      fprintf(stderr, "%s: Error, empty string.\n", prog);
+      return EXIT_FAILURE;
+    } 
 
+    // Process 
+    memset(tallyCnt, 0, 5*sizeof(int));
+    strcpy(tallyOrder, "abcde");
+    inputLen = strlen(input);
+
+    for (int i = 0; i < inputLen; i++) 
+      tallyCnt[tolower(input[i]) - 'a'] += isupper(input[i]) ? -1 : 1;
+
+    for (int i = 0; i < 5; i++)
+      for (int j = i + 1; j < 5; j++) 
+        if (tallyCnt[j] > tallyCnt[i])
+        {
+          int tempVal;
+          int tempLetter;
+
+          tempVal = tallyCnt[i];
+          tallyCnt[i] = tallyCnt[j];
+          tallyCnt[j] = tempVal;
+
+          tempLetter = tallyOrder[i];
+          tallyOrder[i] = tallyOrder[j];
+          tallyOrder[j] = tempLetter;
+        }
+     
+    // Output
+    for (int i = 0; i < 5; i++)
+    {
+      printf("%c: %d ", tallyOrder[i], tallyCnt[i]);
+    }
+    printf("\n");
+  }
   // Cleanup
 
   // Fin
