@@ -68,9 +68,7 @@ main(int argc, char **argv)
     // Output
     printf("%s: ", prog);
     for (int i = 0; i < 5; i++)
-    {
       printf("%c: %d ", tallyOrder[i], tallyCnt[i]);
-    }
     printf("\n");
   }
 
