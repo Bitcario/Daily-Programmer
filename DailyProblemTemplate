@@ -1,0 +1,29 @@
+/*
+  Athr:
+  Prog:
+  Desc:
+  Date:
+  Note:
+*/
+
+// Header Files
+#include <stdio.h>
+#include <stdlib.h>
+// User-defined Header Files
+
+// Directives
+
+// Global Variables
+
+// Data Structures
+
+// Function Prototypes
+
+// Macros
+
+// main()
+int main (int argc, char** argv)
+{
+
+  return EXIT_SUCCESS;
+}
