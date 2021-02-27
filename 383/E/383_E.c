@@ -41,7 +41,7 @@ main(int argc, char** argv)
   {
     strcpy(srcStr, "\0");
     strcpy(shiftedStr, "\0");
-    sscanf(input, "\"%[^\"]\", \"%[^\"]", shiftedStr, srcStr);
+    sscanf(input, "\"%[^\"]\", \"%[^\"]", srcStr, shiftedStr);
     printf("%s: %s\n", prog, SameNecklace(srcStr, shiftedStr) ? "true" : "false");
   }
 
@@ -51,12 +51,16 @@ main(int argc, char** argv)
 bool
 SameNecklace(char *src, char *shifted)
 {
-  if (strcmp(shifted, "") == 0)
-    return true;
-
   if (!src || !shifted 
       || strlen(shifted) != strlen(src))
+  {
     return false;
+  }
+
+  if (strcmp(shifted, "") == 0)
+  {
+    return true;
+  }
   
   char searchStr[BUF_LEN * 2];
 
