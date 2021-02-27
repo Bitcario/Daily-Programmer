@@ -1,11 +1,11 @@
-"nicole", "icolen", true
-"nicole", "lenico", true
-"nicole", "coneli", false
-"aabaaaaabaab", "aabaabaabaaa"), true
-"abc", "cba"), false
-"xxyyy", "xxxyy"), false
-"xyxxz", "xxyxz"), false
-"x", "x"), true
-"x", "xx"), false
-"x", ""), false
-"", ""), true
+"nicole", "icolen"
+"nicole", "lenico"
+"nicole", "coneli"
+"aabaaaaabaab", "aabaabaabaaa"
+"abc", "cba"
+"xxyyy", "xxxyy"
+"xyxxz", "xxyxz"
+"x", "x"
+"x", "xx"
+"x", ""
+"", ""
