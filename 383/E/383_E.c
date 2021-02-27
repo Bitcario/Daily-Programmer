@@ -41,8 +41,8 @@ main(int argc, char** argv)
   {
     strcpy(srcStr, "\0");
     strcpy(shiftedStr, "\0");
-    sscanf(input, "\"%[^\"]\", \"%[^\"]", srcStr, shiftedStr);
-    printf("%s: %s\n", prog, SameNecklace(shiftedStr, srcStr) ? "true" : "false");
+    sscanf(input, "\"%[^\"]\", \"%[^\"]", shiftedStr, srcStr);
+    printf("%s: %s\n", prog, SameNecklace(srcStr, shiftedStr) ? "true" : "false");
   }
 
   return EXIT_SUCCESS;
