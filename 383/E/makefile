@@ -22,14 +22,9 @@ $(NAME2): $(OBJ2)
 %.o: %.cpp $(DEPS2)
 	$(CC2) -c -o $@ $< $(CFLAGS2)
 
-#bonus2: 383_E_bonus_2.cpp
-#	g++ -std=c++11 -Wall -Wextra -o bonus2.out 383_E_bonus_2.cpp
-
 all: $(NAME) $(NAME2) 
 
 run:
-	./$(NAME)
-runin:
-	./$(NAME) < input
+	./$(NAME) && ./$(NAME2)
 clean:
 	rm *.out *.o
